@@ -15,7 +15,7 @@ Options::Options(int argc, char **argv)
             exit(EXIT_SUCCESS);
         }
     } catch (const std::exception &e) {
-        std::cerr << e.what();
+        std::cerr << e.what() << std::endl;
         std::cerr << m_options;
         exit(EXIT_FAILURE);
     }
