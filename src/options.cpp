@@ -48,9 +48,18 @@ void Options::addOptions()
          po::command_line_style::allow_guessing) |
         po::command_line_style::allow_long_disguise;
 
+#define O(definition, callback, description)          \
+    (definition,                                      \
+     po::bool_switch()->notifier([this](bool yep) {   \
+         if (yep) {                                   \
+             m_action = &Ops::callback;               \
+         }                                            \
+     }),                                              \
+     description)
+
     m_options.add_options()
         ("help,h", "Show help message")
-        ("normalize,n", po::bool_switch()->notifier([this](bool yep) { if (yep) m_action = &Ops::normalize; }), "Normalize action")
+        O("normalize,n", normalize, "Normalize action")
     ;
 
     po::store(po::command_line_parser(m_argc, m_argv)
