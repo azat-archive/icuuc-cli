@@ -12,7 +12,7 @@ class Ops
 public:
     Ops()
         : m_status(U_ZERO_ERROR)
-        , m_normalizer(*Normalizer2::getNFCInstance(m_status))
+        , m_normalizer(*Normalizer2::getNFKCInstance(m_status))
     {
         assert(&m_normalizer);
         assert(U_SUCCESS(m_status));
