@@ -1,0 +1,17 @@
+*.sw[op]
+
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+build.ninja
+rules.ninja
+.ninja_deps
+.ninja_log
+
+*.test
+
+*.[ao]
+*.so
+
+icuuc-cli
