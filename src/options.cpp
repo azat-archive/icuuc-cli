@@ -60,6 +60,8 @@ void Options::addOptions()
     m_options.add_options()
         ("help,h", "Show help message")
         O("normalize,n", normalize)
+        O("lower,l", lower)
+        O("upper,u", upper)
     ;
 
     po::store(po::command_line_parser(m_argc, m_argv)
