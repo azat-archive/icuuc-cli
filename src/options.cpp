@@ -62,6 +62,7 @@ void Options::addOptions()
         O("normalize,n", normalize)
         O("lower,l", lower)
         O("upper,u", upper)
+        O("title,t", title)
     ;
 
     po::store(po::command_line_parser(m_argc, m_argv)
