@@ -1,8 +1,10 @@
+#include <boost/noncopyable.hpp>
+
 #include <unicode/utypes.h>
 #include <unicode/normalizer2.h>
 #include <string>
 
-class Ops
+class Ops : public boost::noncopyable
 {
 public:
     Ops();
