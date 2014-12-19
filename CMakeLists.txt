@@ -11,3 +11,4 @@ add_executable(
     "${CMAKE_SOURCE_DIR}/src/options.cpp"
 )
 target_link_libraries(icuuc-cli icuuc ${Boost_LIBRARIES})
+set_target_properties(icuuc-cli PROPERTIES COMPILE_FLAGS "-std=c++11")
