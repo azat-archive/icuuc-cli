@@ -63,6 +63,7 @@ void Options::addOptions()
         O("lower,l", lower)
         O("upper,u", upper)
         O("title,t", title)
+        O("fold-case,f", foldCase)
     ;
 
     po::store(po::command_line_parser(m_argc, m_argv)

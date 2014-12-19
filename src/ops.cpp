@@ -63,3 +63,15 @@ std::string &Ops::title(std::string &input)
 
     return m_output;
 }
+
+std::string &Ops::foldCase(std::string &input)
+{
+    m_status = U_ZERO_ERROR;
+    m_output.clear();
+
+    UnicodeString source = UnicodeString::fromUTF8(StringPiece(input));
+    source.foldCase();
+    source.toUTF8String(m_output);
+
+    return m_output;
+}

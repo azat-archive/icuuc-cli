@@ -17,6 +17,7 @@ public:
     std::string &lower(std::string &input);
     std::string &upper(std::string &input);
     std::string &title(std::string &input);
+    std::string &foldCase(std::string &input);
 
 private:
     std::string m_output;
