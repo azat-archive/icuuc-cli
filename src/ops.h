@@ -1,3 +1,5 @@
+#pragma once
+
 #include <boost/noncopyable.hpp>
 
 #include <unicode/utypes.h>
@@ -7,6 +9,8 @@
 class Ops : public boost::noncopyable
 {
 public:
+    typedef std::string &(Ops::*Action)(std::string &);
+
     Ops();
 
     std::string &normalize(std::string &input);

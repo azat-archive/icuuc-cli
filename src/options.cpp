@@ -5,6 +5,7 @@
 Options::Options(int argc, char **argv)
     : m_argc(argc)
     , m_argv(argv)
+    , m_action(nullptr)
 {
     try {
         addOptions();
@@ -32,6 +33,11 @@ bool Options::getValue(const char *optionKey) const
 {
     return m_map.count(optionKey);
 }
+Ops::Action Options::getAction() const
+{
+    assert(m_action);
+    return m_action;
+}
 
 void Options::addOptions()
 {
@@ -44,7 +50,7 @@ void Options::addOptions()
 
     m_options.add_options()
         ("help,h", "Show help message")
-        ("normalize,n", "Normalize action")
+        ("normalize,n", po::bool_switch()->notifier([this](bool yep) { if (yep) m_action = &Ops::normalize; }), "Normalize action")
     ;
 
     po::store(po::command_line_parser(m_argc, m_argv)

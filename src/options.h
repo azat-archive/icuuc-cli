@@ -1,5 +1,9 @@
+#pragma once
+
 #include <boost/program_options.hpp>
 #include <boost/noncopyable.hpp>
+
+#include "ops.h"
 
 class Options : public boost::noncopyable
 {
@@ -10,6 +14,7 @@ public:
     template <class Type>
     Type getValue(const char *optionKey) const;
     bool getValue(const char *optionKey) const; /** flags */
+    Ops::Action getAction() const;
 
 private:
     typedef boost::program_options::variables_map Map;
@@ -17,6 +22,7 @@ private:
 
     Map m_map;
     Description m_options;
+    Ops::Action m_action;
 
     int m_argc;
     char **m_argv;

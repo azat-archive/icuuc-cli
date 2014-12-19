@@ -10,11 +10,10 @@ int main(int argc, char **argv)
     std::string buffer;
     Ops ops;
     Options options(argc, argv);
+    Ops::Action action = options.getAction();
 
     while (std::getline(std::cin, buffer)) {
-        if (options.getValue("normalize")) {
-            std::cout << ops.normalize(buffer) << std::endl;
-        }
+        std::cout << (ops.*action)(buffer) << std::endl;
     }
 
     return EXIT_SUCCESS;
